@@ -44,6 +44,7 @@
                     <th class="text-center texto-titulo">#</th>
                     <th class="text-center texto-titulo px-0">ID | Código</th>
                     <th class="text-center texto-titulo">Descripción</th>
+                    <th class="text-center texto-titulo">Acción</th>
                   </tr>
                 </thead>
 
@@ -71,7 +72,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <!-- AdminLTE App -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0-rc/js/adminlte.min.js" integrity="sha512-pbrNMLSckfh8yEOr2o1RT+4zMU3Sj7+zP3BOY6nFVI/FLnjTRyubNppLbosEt4nvLCcdsEa8tmKhH3uqOYFXKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-
 
 
 <!-- jQuery -->
@@ -137,13 +137,5 @@
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
   }
-
-  /* SCROLL */
-
-::-webkit-scrollbar {
-  width: 8px;     /* Tamaño del scroll en vertical */
-  height: 8px;    /* Tamaño del scroll en horizontal */
-  display: none;  /* Ocultar scroll */
-}
 
 </style>
