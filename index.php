@@ -10,77 +10,44 @@
 
 <body>
 <div id="particles-js"></div>
-    <div class="container-fluid text-center text-white py-5">
+    <div class="container-fluid text-center text-white texto-titulo py-5">
         <h1>Municipalidad Distrital Alto de la Alianza</h1>
     </div>
     
     <div class="container-fluid px-5">
         <div class="card card-primary border-card">
             <div class="card-header">
-                <h3 class="card-title">Buscar</h3>
+                <h3 class="card-title texto-titulo">Buscar</h3>
                 <div class="input-group">
-                    <input type="text" id="buscar"class="form-control float-left" placeholder="Ingrese descripción o código">
+                    <input type="text" id="buscar_tabla" class="form-control float-left" placeholder="Ingrese descripción">
                     <div class="input-group-append">
                         <button class="btn btn-default"><i class="fas fa-search"></i></button>
                     </div>
-                    <div class="input-group-prepend">
                     <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Dropdown button
-  </button>
-  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-    <a class="dropdown-item" href="#">Action</a>
-    <a class="dropdown-item" href="#">Another action</a>
-    <a class="dropdown-item" href="#">Something else here</a>
-  </div>
-</div>
+                      <button class="btn btn-secondary dropdown-toggle texto-titulo" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Código
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item text-dark" href="#">Romeo</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">Delta</a></li>
+                        <li><a class="dropdown-item text-dark" href="#">Alfa</a></li>
+                      </ul>
                     </div>
-
                 </div>
             </div>
             
             <div class="card-body table-responsive p-3">
-              <div class="card-header text-center bg-secondary">ROMEO</div>
-              <table id="" class="table table-bordered text-nowrap">
+              <div class="card-header text-center bg-secondary texto-titulo">LISTA</div>
+              <table class="table table-bordered table-hover text-nowrap">
                 <thead>
                   <tr>
-                    <th class="text-center">#</th>
-                    <th class="text-center px-0">ID | Código</th>
-                    <th class="text-center">Descripción</th>
+                    <th class="text-center texto-titulo">#</th>
+                    <th class="text-center texto-titulo px-0">ID | Código</th>
+                    <th class="text-center texto-titulo">Descripción</th>
                   </tr>
                 </thead>
 
-                <tbody>
-                  <tr>
-                    <th class="text-center">1</th>
-                    <th class="text-center">1 | 2</th>
-                    <th>Jefe del Estado Mayor General</th>
-                  </tr>
-                  <tr>
-                    <th class="text-center">2</th>
-                    <th class="text-center">1 | 3</th>
-                    <th>Inspector General</th>
-                  </tr>
-                  <tr>
-                    <th class="text-center">3</th>
-                    <th class="text-center">1 | 8</th>
-                    <th>DIR. EJEC. PERSONAL</th>
-                  </tr>
-                  <tr>
-                    <th class="text-center">4</th>
-                    <th class="text-center">1 | 9</th>
-                    <th>DIRNOP</th>
-                  </tr>
-                  <tr>
-                    <th class="text-center">5</th>
-                    <th class="text-center">1 | 39</th>
-                    <th>Jefe de Región PNP (indicar)</th>
-                  </tr>
-                  <tr>
-                    <th class="text-center">6</th>
-                    <th class="text-center">1 | 54</th>
-                    <th>Comisario de ... (indicar)</th>
-                  </tr>
+                <tbody id="datos">
                 </tbody>
               </table>
             </div>
@@ -94,8 +61,37 @@
 </body>
 </html>
 
+<!-- Particle.js -->
 <script src="js/particles.min.js"></script>
 <script src="js/app.js"></script>
+
+<!-- jQuery -->
+<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+<!-- Bootstrap 4 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- AdminLTE App -->
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0-rc/js/adminlte.min.js" integrity="sha512-pbrNMLSckfh8yEOr2o1RT+4zMU3Sj7+zP3BOY6nFVI/FLnjTRyubNppLbosEt4nvLCcdsEa8tmKhH3uqOYFXKg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
+
+<!-- jQuery -->
+<script src="js/jquery.min.js"></script>
+<!-- Bootstrap 4 -->
+<!-- <script src="js/bootstrap.bundle.min.js"></script> -->
+<!-- AdminLTE App -->
+<script src="js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="js/demo.js"></script>
+<!-- SweetAlert2 -->
+<script src="js/sweetalert2.js"></script>
+<!-- select2 -->
+<script src="js/select2.js"></script>
+<script src="js/datatables.js"></script>
+
+<script type="text/javascript" src="js/tabla.js"></script>
+
+
+
 
 <style>
   .card-primary:not(.card-outline)>.card-header 
@@ -131,15 +127,23 @@
     border: 1px solid #3c5aa2;
   }
 
-  /* .px-5 
+  .texto-normal
   {
-    padding-right: 10rem !important;
-    padding-left: 10rem !important;
-  } */
+    font-weight: normal;
+  }
 
-  body
+  .texto-titulo
   {
     font-family: 'Poppins', sans-serif;
     overflow: hidden;
-  } 
+  }
+
+  /* SCROLL */
+
+::-webkit-scrollbar {
+  width: 8px;     /* Tamaño del scroll en vertical */
+  height: 8px;    /* Tamaño del scroll en horizontal */
+  display: none;  /* Ocultar scroll */
+}
+
 </style>
