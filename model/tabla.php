@@ -8,21 +8,15 @@
     }
 
     function buscar(){
-      if (!empty($_POST['consulta'])){
-        $consulta = $_POST['consulta'];
-        $sql="SELECT * FROM clave_pnp where descripcion LIKE :consulta"; 
-        $query = $this->acceso->prepare($sql);
-        $query->execute(array(':consulta'=>"%$consulta%"));
-        $this->objetos=$query->fetchall();
-        return $this->objetos;
-      }
-      else{
-        $sql="SELECT * FROM clave_pnp where descripcion NOT LIKE '' ORDER BY id LIMIT 25";
-        $query = $this->acceso->prepare($sql);
-        $query->execute();
-        $this->objetos=$query->fetchall();
-        return $this->objetos;
-      }
+      $sql="SELECT tipo_categoria.nombre as Tipo_Categoria, categoria.nombre as Categoria, des_categoria.nombre as Nombre, des_categoria.codigo as Codigo, sub_categoria.nombre as Descripcion
+      FROM tipo_categoria 
+      JOIN categoria ON tipo_categoria.id = categoria.id_tipo_categoria
+      JOIN des_categoria ON categoria.id = des_categoria.idCategoria
+      LEFT JOIN sub_categoria ON des_categoria.id = sub_categoria.id_des_categoria";
+      $query = $this->acceso->prepare($sql);
+      $query->execute();
+      $this->objetos=$query->fetchall();
+      return $this->objetos;
     }  
   }
 ?>

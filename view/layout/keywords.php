@@ -13,3 +13,11 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="../asset/css/animate.min.css">
+    <link rel="stylesheet" href="../asset/css/datatables.css">
+    <!-- <link rel="stylesheet" href="../css/compra.css"> -->
+    <link rel="stylesheet" href="../asset/css/main.css">
+    <!--select2-->
+    <!-- <link rel="stylesheet" href="../css/select2.css"> -->
