@@ -9,13 +9,12 @@
     <link rel="stylesheet" type="text/css "href="asset/css/css/all.min.css">
 </head>
 <?php
-// session_start();
-// if(!empty($_SESSION['us_tipo'])){
-//     header('Location: controller/loginController.php');
-// }
-// else{
-// session_destroy();
-
+session_start();
+if(!empty($_SESSION['id_tip_user'])){
+    header('Location: controller/loginController.php');
+}
+else{
+session_destroy();
 ?>
 <body>
     <img class="wave"src="asset/img/wave_vo2.png" alt="">
@@ -27,7 +26,6 @@
             <form action="controller/loginController.php" method="post">            
                 <p>
                     <font color=#00B0FF><b>Bienvenido</b></font>
-                    <!-- <font color=black><b>Hogar</b></font></a> -->
                 <p>
                 <div class="input-div dni">
                     <div class="i">
@@ -56,5 +54,5 @@
 <script src="asset/js/login.js"></script>
 </html>
 <?php
-// }
+}
 ?>

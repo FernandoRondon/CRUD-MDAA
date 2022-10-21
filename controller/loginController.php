@@ -5,8 +5,8 @@ $user = $_POST['user'];
 $pass = $_POST['pass'];
 $usuario = new usuario();
 
-if(!empty($_SESSION['us_tipo'])){
-    switch ($_SESSION['us_tipo']) {
+if(!empty($_SESSION['id_tip_user'])){
+    switch ($_SESSION['id_tip_user']) {
         case 1:
             header('Location: ../view/adm_inicio.php');
             break;
@@ -23,11 +23,11 @@ else
     if(!empty($usuario->loguearse($user,$pass)=="logueado")){
         $usuario->obtener_dato_logueo($user);
         foreach ($usuario->objetos as $objeto) {
-            $_SESSION["usuario"] = $objeto->id_usuario;
-            $_SESSION["us_tipo"] = $objeto->us_tipo;
-            $_SESSION["nombre"]= $objeto->nombre_us;
+            $_SESSION["id"] = $objeto->id;
+            $_SESSION["id_tip_user"] = $objeto->id_tip_user;
+            $_SESSION["nombre"]= $objeto->nombre;
         }
-        switch ($_SESSION["us_tipo"]) {
+        switch ($_SESSION["id_tip_user"]) {
             case 1:
               header("Location: ../view/adm_inicio.php");
               break;

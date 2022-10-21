@@ -16,7 +16,7 @@
       <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
         <!-- <span class="brand-text font-weight-light mx-3"></span> -->
-        <a href="logout" class="text-danger">Cerrar sesión</a>
+        <a href="../controller/logout.php" class="text-danger">Cerrar sesión</a>
       </ul>
     </nav>
     <!-- /.navbar -->
@@ -29,8 +29,8 @@
       <!-- <a href="#" class="brand-link">
         <span class="brand-text font-weight-light">InnovamosContigo</span>
       </a> -->
-      <a href="../views/general.php" class="brand-link">
-        <img src="../asset/img/logo-white.png" alt="MDAA" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <a href="../view/adm_inicio.php" class="brand-link">
+        <img src="../asset/img/logo.jpg" alt="MDAA" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">MDAA</span>
       </a>
       <!-- Sidebar -->
@@ -38,29 +38,30 @@
 
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../asset/img/user2.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../asset/img/Usuario.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Fernando Rondón</a>
+          <a href="#" class="d-block">
+            <?php
+              echo $_SESSION['nombre'];
+            ?>
+          </a>
         </div>
       </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-
-            <!-- <li class="nav-header">EXAMPLES</li> -->
+            
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-address-book"></i>
+              <a href="adm_inicio.php" class="nav-link">
+                <i class="nav-icon fas fa-home"></i>
                 <p>
                   Inicio
                 </p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="adm_atributo.php" class="nav-link">
                 <i class="nav-icon fa fa-cubes"></i>
                 <p>
                   Atributo
@@ -77,8 +78,8 @@
             </li> -->
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-users"></i>
+              <a href="adm_historial.php" class="nav-link">
+                <i class="nav-icon fas fa-notes-medical"></i>
                 <p>
                   Historial
                 </p>
@@ -86,7 +87,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="adm_consulta.php" class="nav-link">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
                   Consulta
@@ -95,8 +96,8 @@
             </li>
 
             <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-users"></i>
+              <a href="adm_reporte.php" class="nav-link">
+                <i class="nav-icon fas fa-file"></i>
                 <p>
                   Reporte
                 </p>

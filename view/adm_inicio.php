@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
     <?php include_once 'layout/keywords.php';?>
+    <?php
+    session_start();
+    if($_SESSION['id_tip_user']==1||$_SESSION['id_tip_user']==3){
+    ?>
+
     <title>Inicio</title>
 </head>
 <body class="hold-transition sidebar-mini">
@@ -80,6 +85,12 @@
           </div>
       </section>
     </div>
-    <?php include_once 'layout/footer.php';?>
+    <?php 
+    include_once 'layout/footer.php';
+    }
+    else{
+        header('Location: ../index.php');
+    }
+    ?>
 </body>
 </html>
