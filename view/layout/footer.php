@@ -14,8 +14,8 @@
   <!-- ./wrapper -->
 
 <!-- Particle.js -->
-<script src="../asset/js/particles.min.js"></script>
-<script src="../asset/js/app.js"></script>
+<!-- <script src="../asset/js/particles.min.js"></script>
+<script src="../asset/js/app.js"></script> -->
 
 <!-- jQuery -->
 <script src="../asset/js/lib/jquery.min.js"></script>

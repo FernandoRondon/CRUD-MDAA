@@ -36,18 +36,18 @@
       <!-- Sidebar -->
       <div class="sidebar">
 
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../asset/img/Usuario.jpg" class="img-circle elevation-2" alt="User Image">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="../asset/img/Usuario.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">
+              <?php
+                echo $_SESSION['nombre'];
+              ?>
+            </a>
+          </div>
         </div>
-        <div class="info">
-          <a href="#" class="d-block">
-            <?php
-              echo $_SESSION['nombre'];
-            ?>
-          </a>
-        </div>
-      </div>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -61,21 +61,21 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="adm_atributo.php" class="nav-link">
-                <i class="nav-icon fa fa-cubes"></i>
+              <a href="ad_usuario" class="nav-link">
+                <i class="nav-icon fas fa-user-cog"></i>
                 <p>
-                  Atributo
+                  Gestión Usuario
                 </p>
               </a>
             </li>
-            <!-- <li class="nav-item">
-              <a href="#" class="nav-link">
-                <i class="nav-icon fa fa-users"></i>
+            <li class="nav-item">
+              <a href="adm_atributo.php" class="nav-link">
+                <i class="nav-icon fa fa-cubes"></i>
                 <p>
-                  Código
+                  Gestión Atributo
                 </p>
               </a>
-            </li> -->
+            </li>
 
             <li class="nav-item">
               <a href="adm_historial.php" class="nav-link">
@@ -130,6 +130,10 @@
         border-color: #3f6791;
         box-shadow: none;
       }
+
+      .card-primary:not(.card-outline)>.card-header {
+        background-color: #007bff;
+      } 
       .btn-primary:hover 
       {
         color: #fff;
