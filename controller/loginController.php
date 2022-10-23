@@ -11,10 +11,10 @@ if(!empty($_SESSION['id_tip_user'])){
             header('Location: ../view/adm_inicio.php');
             break;
         case 2:
-            header('Location: ../view/adm_historial.php');
+            header('Location: ../view/adm_consulta.php');
             break;
         case 3:
-            header('Location: ../view/adm_historial.php');
+            header('Location: ../view/adm_consulta.php');
             break;    
     }
 }
@@ -32,10 +32,10 @@ else
               header("Location: ../view/adm_inicio.php");
               break;
             case 2:
-              header("Location: ../view/adm_historial.php");
+              header("Location: ../view/adm_consulta.php");
               break;
             case 3:
-              header('Location: ../view/adm_historial.php');
+              header('Location: ../view/adm_consulta.php');
               break;
         }
     }

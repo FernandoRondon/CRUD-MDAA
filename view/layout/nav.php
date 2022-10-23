@@ -38,7 +38,7 @@
 
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
           <div class="image">
-            <img src="../asset/img/Usuario.jpg" class="img-circle elevation-2" alt="User Image">
+            <img src="../asset/img/user_default.jpg" class="img-circle elevation-2" alt="User Image">
           </div>
           <div class="info">
             <a href="#" class="d-block">
@@ -60,23 +60,34 @@
                 </p>
               </a>
             </li>
+            <li id="Usuario" class="nav-header">Usuarios</li>
             <li class="nav-item">
-              <a href="ad_usuario" class="nav-link">
+              <a href="adm_usuario.php" class="nav-link">
                 <i class="nav-icon fas fa-user-cog"></i>
                 <p>
-                  Gestión Usuario
+                  Gestión usuario
                 </p>
               </a>
             </li>
+            <li id="" class="nav-header">Categoria</li>
             <li class="nav-item">
               <a href="adm_atributo.php" class="nav-link">
                 <i class="nav-icon fa fa-cubes"></i>
                 <p>
-                  Gestión Atributo
+                  Gestión atributo
                 </p>
               </a>
             </li>
 
+            <li id="" class="nav-header">Consultas</li>
+            <li class="nav-item">
+              <a href="adm_consulta.php" class="nav-link">
+                <i class="nav-icon fa fa-users"></i>
+                <p>
+                  Gestión consulta
+                </p>
+              </a>
+            </li>
             <li class="nav-item">
               <a href="adm_historial.php" class="nav-link">
                 <i class="nav-icon fas fa-notes-medical"></i>
@@ -86,20 +97,12 @@
               </a>
             </li>
 
-            <li class="nav-item">
-              <a href="adm_consulta.php" class="nav-link">
-                <i class="nav-icon fa fa-users"></i>
-                <p>
-                  Consulta
-                </p>
-              </a>
-            </li>
-
+            <li id="" class="nav-header">Reportes</li>
             <li class="nav-item">
               <a href="adm_reporte.php" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
                 <p>
-                  Reporte
+                  Gestión reportes
                 </p>
               </a>
             </li>
@@ -111,7 +114,7 @@
       <!-- /.sidebar -->
     </aside>
 
-    <style>
+    <!-- <style>
       #background
       {
         background-color: #323c55;
@@ -204,4 +207,4 @@
       {
         box-shadow: none !important;
       }
-    </style>
+    </style> -->

@@ -23,10 +23,10 @@
 <script src="../asset/js/lib/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../asset/js/lib/adminlte.min.js"></script>
-<script src="../asset/js/datatables.js"></script>
+<script src="../asset/js/lib/datatables.js"></script>
 
 <!-- AdminLTE for demo purposes -->
-<script src="../asset/js/lib/demo.js"></script>
+<!-- <script src="../asset/js/lib/demo.js"></script> -->
 <!-- SweetAlert2 -->
 <script src="../asset/js/lib/sweetalert2.js"></script>
 <!-- select2 -->
