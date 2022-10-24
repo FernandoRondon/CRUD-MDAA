@@ -7,30 +7,31 @@ class categoria{
         $this->acceso=$db->pdo;
     }
 
-    function crear($nombre){
-        $sql="SELECT id, estado FROM categoria where nombre=:nombre";
+    function crear($clave, $nombre){
+        $sql="SELECT * FROM categoria where categoria_nombre=:nombre";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':nombre'=>$nombre));
+   
         $this->objetos=$query->fetchall();
         if(!empty($this->objetos)){
             foreach ($this->objetos as $cat) {
-                $cat_id= $cat->id;
-                $cat_estado = $cat->estado;
+                $cat_id= $cat->id_categoria;
+                $cat_estado = $cat->categoria_estado;
              }
              if($cat_estado==1){
                  echo 'noadd';
              }
              else{
-                 $sql="UPDATE categoria SET estado=1 where categoria.id=:id";
+                 $sql="UPDATE categoria SET categoria_estado=1 where id_categoria=:id";
                  $query = $this->acceso->prepare($sql);
                  $query->execute(array(':id'=>$cat_id));
                  echo 'add';
              }
         }
         else{
-            $sql="INSERT INTO categoria(nombre) values (:nombre);";
+            $sql="INSERT INTO categoria(id_tipo_categoria,categoria_nombre,categoria_estado) values (:clave,:nombre,:estado);";
             $query = $this->acceso->prepare($sql);
-            $query->execute(array(':nombre'=>$nombre));
+            $query->execute(array(':clave'=>$clave,':nombre'=>$nombre,'estado'=>1));
             echo 'add';
         }
     }
@@ -40,14 +41,14 @@ class categoria{
     function buscar(){
         if(!empty($_POST['consulta'])){
             $consulta=$_POST['consulta'];
-            $sql="SELECT * FROM categoria where estado=1 and nombre LIKE :consulta";
+            $sql="SELECT * FROM categoria where categoria_estado=1 and categoria_nombre LIKE :consulta";
             $query = $this->acceso->prepare($sql);
             $query->execute(array(':consulta'=>"%$consulta%"));
             $this->objetos=$query->fetchall();
             return $this->objetos;
         }
         else{
-            $sql="SELECT * FROM categoria where estado=1 and nombre NOT LIKE '' ORDER BY id LIMIT 25";
+            $sql="SELECT * FROM categoria where categoria_estado=1 and categoria_nombre NOT LIKE '' ORDER BY id_categoria LIMIT 25";
             $query = $this->acceso->prepare($sql);
             $query->execute();
             $this->objetos=$query->fetchall();
@@ -55,7 +56,14 @@ class categoria{
         }
     }
    
-
+    function rellenar_claves()
+    {
+        $sql="SELECT * FROM tipo_categoria";
+        $query = $this->acceso->prepare($sql);
+        $query->execute();
+        $this->objetos=$query->fetchall();
+        return $this->objetos;
+    }
 
 
     // function borrar($id){
@@ -80,18 +88,11 @@ class categoria{
 
 
     // }
-    // function editar($nombre,$id_editado){
-    //     $sql="UPDATE tipo_producto SET nombre=:nombre where id_tip_prod=:id";
-    //     $query = $this->acceso->prepare($sql);
-    //     $query->execute(array(':id'=>$id_editado,':nombre'=>$nombre));
-    //     echo 'edit';
-    // }
-    // function rellenar_tipos(){
-    //     $sql="SELECT * FROM tipo_producto WHERE estado='A' order by nombre asc";
-    //     $query = $this->acceso->prepare($sql);
-    //     $query->execute();
-    //     $this->objetos = $query->fetchall();
-    //     return $this->objetos;
-    // }
+    function editar($clave,$nombre,$id_editado){
+        $sql="UPDATE categoria SET nombre=:nombre where id=:id";
+        $query = $this->acceso->prepare($sql);
+        $query->execute(array(':id'=>$id_editado,':nombre'=>$nombre));
+        echo 'edit';
+    }
 }
 ?>

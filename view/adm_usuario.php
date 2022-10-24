@@ -3,7 +3,7 @@
 <head>
   <?php
     session_start();
-    if($_SESSION['id_tip_user']==1||$_SESSION['id_tip_user']==3){
+    if($_SESSION['id_tip_user']==1){
   ?>
   <?php include_once 'layout/keywords.php';?>
 

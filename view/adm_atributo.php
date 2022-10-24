@@ -4,7 +4,7 @@
     <?php include_once 'layout/keywords.php';?>
     <?php
     session_start();
-    if($_SESSION['id_tip_user']==1||$_SESSION['id_tip_user']==3){
+    if($_SESSION['id_tip_user']==1){
     ?>
 
     <title>Atributo</title>
@@ -86,6 +86,7 @@
                                                 <tr>
                                                   <th>Acción</th>
                                                   <th>Código</th>
+                                                  <th>Descripción</th>
                                                 </tr>
                                               </thead>
                                               <tbody class="table-active" id="codigos">
@@ -122,7 +123,7 @@
 
 
 
-<!--CREAR CATEGORIA  -->
+<!--CATEGORIA MODALES -->
 <div class="modal fade" id="crearcategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -136,10 +137,14 @@
             <div class="card-body">
                 <form id="form-crear-categoria">
                     <div class="form-group">
-                        <label for="nombre-categoria">Nombre</label>
-                        <input id="nombre-categoria"type="text" class="form-control" placeholder="Ingrese nombre" required>
-                        <input type="hidden" id="id_editar_cat">
+                        <label for="clave">Clave</label>
+                        <select name="clave" id="clave" class="form-control select2" style="width: 100%"></select>
                     </div>
+                    <div class="form-group">
+                        <label for="nombre_categoria">Nombre</label>
+                        <input id="nombre_categoria"type="text" class="form-control" placeholder="Ingrese nombre" required>
+                    </div>
+                      <!-- <input type="hidden" id="id_editar_cat"> -->
             </div>
               <div class="alert alert-success text-center" id="add-categoria" style='display:none;'>
                 <span><i class="fas fa-check m-1"></i>Se agrego correctamente</span>
@@ -156,6 +161,44 @@
     </div>
   </div>
 </div>
+
+
+<div class="modal fade" id="editarcategoria" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="card-success">
+            <div class="card-header">
+                <h3 class="card-title">Editar Categoria</h3>
+                <button data-dismiss="modal" aria-label="close"class="close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="card-body">
+                <form id="form-editar-categoria">
+                <input type="hidden" id="id_editar_cat">
+                  <div class="form-group">
+                    <label for="clave">Clave</label>
+                    <select name="#mtxtclave" id="#mtxtclave" class="form-control select2" style="width: 100%"></select>
+                  </div>
+                  <div class="form-group">
+                    <label for="nombre_categoria">Nombre</label>
+                    <input type="text" id="mtxtcategoria" class="form-control" placeholder="Ingrese nombre" required>
+                  </div>
+            </div>
+                <div class="alert alert-success text-center" id="edit-pres" style='display:none;'>
+                    <span><i class="fas fa-check m-1"></i>Se edito correctamente</span>
+                </div>
+            <div class="card-footer">
+                <button type="submit"class="btn bg-gradient-primary float-right m-1">Guardar</button>
+                <button type="button" id="mbtncerrarmodal6" data-dismiss="modal"class="btn btn-outline-secondary float-right m-1">Cerrar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
 
 
 <!--CREAR CODIGO  -->

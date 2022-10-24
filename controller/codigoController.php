@@ -12,7 +12,7 @@ if($_POST['funcion']=='buscar'){
     foreach ($codigo->objetos as $objeto) {
         $json[]=array(
             'id'=>$objeto->id,
-            'nombre'=>$objeto->nombre           
+            'nombre'=>$objeto->nombre          
         );
     }
     $jsonstring = json_encode($json);
