@@ -8,12 +8,11 @@ if($_POST['funcion']=='crear'){
     $categoria->crear($clave, $nombre);
 }
 
-// if($_POST['funcion']=='editar'){
-//     $clave = $_POST['clave'];
-//     $nombre = $_POST['nombre_categoria'];
-//     $id_editado=$_POST['id_editado'];
-//     $categoria->editar($clave,$nombre,$id_editado);
-// }
+if($_POST['funcion']=='editar'){
+    $nombre = $_POST['nombre_categoria'];
+    $id_editado=$_POST['id_editado'];
+    $categoria->editar($nombre,$id_editado);
+}
 
 if($_POST['funcion']=='buscar'){
     $categoria->buscar();
@@ -21,8 +20,7 @@ if($_POST['funcion']=='buscar'){
     foreach ($categoria->objetos as $objeto) {
         $json[]=array(
             'id'=>$objeto->id_categoria,
-            'nombre'=>$objeto->categoria_nombre,
-            'clave'=>$objeto->id_tipo_categoria
+            'nombre'=>$objeto->categoria_nombre
         );
     }
     
@@ -30,10 +28,10 @@ if($_POST['funcion']=='buscar'){
     echo $jsonstring;
 }
 
-// if($_POST['funcion']=='borrar'){
-//     $id=$_POST['id'];
-//     $tipo->borrar($id);
-// }
+if($_POST['funcion']=='borrar'){
+    $id=$_POST['id'];
+    $categoria->borrar($id);
+}
 
 
 if($_POST['funcion']=='rellenar_claves'){

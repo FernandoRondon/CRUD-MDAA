@@ -7,75 +7,59 @@
     if($_SESSION['id_tip_user']==1||$_SESSION['id_tip_user']==2){
     ?>
 
-    <title>Inicio</title>
+    <title>Consulta</title>
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
     <?php include_once 'layout/nav.php';?>
+
     <!-- Content Wrapper. Contains page content -->
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-
-    <!-- Main content -->
-    <section class="content">
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
         <div class="container-fluid">
-            <h2 class="text-center display-4">Consulta</h2>
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <!-- <form action="simple-results.html"> -->
-                        <div class="input-group">
-                            <input type="search" class="form-control form-control-lg" placeholder="Escriba el código aqui">
-                            <div class="input-group-append">
-                                <button onclick="mostrar()" type="submit" class="btn btn-lg btn-default">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
-                        </div>
-                    <!-- </form> -->
-                </div>
+            <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Listar Consultas </h1>
+            </div>
             </div>
         </div>
-    </section>
+        <!-- /.container-fluid -->
+        </section>
+        
+        <section>
+            <div class="container-fluid">
+                <div class="card card-success">
+                    <div class="card-header">
+                        <h3 class="card-title">Buscar consultas</h3>
+                    
+                    </div>
+                    <div class="card-body">
+                        <table id="tabla_venta" class="display table table-hover text-nowrap" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>Usuario</th>
+                                    <th>Fecha</th>
+                                    <th>Categoria</th>
+                                    <th>Código</th>
+                                    <th>Descripción</th>
+                                    <th>Observación</th>
+                                </tr>
+                            </thead>
+                            <tbody>
 
-    <section id="observacion" style="display:none;" class ="px-5 py-5">
-        <div class="container-fluid">
-            <div class="card card-primary">
-                <div class="card-header">
-                    <h3 class="card-title">Datos</h3>
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="">Código</label>
-                        <input type="text" class="form-control" placeholder="...">
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="form-group">
-                        <label for="">Descripción</label>
-                        <input type="text" class="form-control" placeholder="...">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Nombre completo</label>
-                        <input type="text" class="form-control" placeholder="Fernando Marcial Rondón Puma">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Fecha y hora</label>
-                        <input type="date" class="form-control" >
-                    </div>
-                    <div class="form-group">
-                        <label>Observación</label>
-                        <textarea class="form-control" rows="5" placeholder="Enter ..."></textarea>
+                    <div class="card-footer">
+                    
                     </div>
                 </div>
-
-
-                <div class="card-footer text-right">
-                    <button type="button" class="btn btn-primary">Guardar</button>
-                </div>
-                
             </div>
-        </div>
-    </section>
-
-  </div>
+        </section>
+    </div>
+    <!-- /.content-wrapper -->
+d
 
     <?php 
     include_once 'layout/footer.php';
@@ -87,10 +71,4 @@
 </body>
 </html>
 
-<script languague="javascript">
-        function mostrar() 
-        {
-            section = document.getElementById('observacion');
-            section.style.display = '';
-        }
-</script>
+<!-- <script src="../asset/js/consulta.js"></script> -->

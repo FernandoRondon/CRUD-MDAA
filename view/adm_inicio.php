@@ -44,7 +44,7 @@
                           <div class="icon">
                             <i class="fas fa-shopping-bag"></i>
                           </div>
-                          <a href="adm_mas_consultas.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                          <a href="adm_atributo.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                       </div>
                       <!-- ./col -->
@@ -58,7 +58,7 @@
                           <div class="icon">
                             <i class="far fa-calendar-alt"></i>
                           </div>
-                          <a href="adm_mas_consultas.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                          <a href="adm_atributo.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                       </div>
                       <!-- ./col -->
@@ -72,7 +72,7 @@
                           <div class="icon">
                             <i class="fas fa-signal"></i>
                           </div>
-                          <a href="adm_mas_consultas.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
+                          <a href="adm_historial.php" class="small-box-footer">Más información <i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                       </div>
                       <!-- ./col -->
