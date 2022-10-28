@@ -18,6 +18,7 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.39.0/css/tempusdominus-bootstrap-4.min.css" integrity="sha512-3JRrEUwaCkFUBLK1N8HehwQgu8e23jTH4np5NHOmQOobuC4ROQxFwFgBLTnhcnQRMs84muMh0PnnwXlPq5MGjg==" crossorigin="anonymous" /> -->
 
     <!-- Font Awesome -->
+    <link rel="stylesheet" href="../asset/css/select2.css">
     <link rel="stylesheet" href="../asset/css/css/all.min.css">
     <link rel="stylesheet" href="../asset/css/animate.min.css">
     <link rel="stylesheet" href="../asset/css/datatables.css">
@@ -26,6 +27,6 @@
     <link rel="stylesheet" href="../asset/css/adminlte.min.css">
     <!--select2-->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="../asset/css/select2.css">
     <!--sweetalert2-->
     <link rel="stylesheet" href="../asset/css/sweetalert2.css">
+    

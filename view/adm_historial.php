@@ -4,7 +4,7 @@
     <?php include_once 'layout/keywords.php';?>
     <?php
     session_start();
-    if($_SESSION['id_tip_user']==1||$_SESSION['id_tip_user']==2){
+    if($_SESSION['id_tip_user']==1){
     ?>
 
     <title>Consulta</title>
@@ -35,14 +35,14 @@
                     
                     </div>
                     <div class="card-body">
-                        <table id="tabla_venta" class="display table table-hover text-nowrap" style="width:100%">
+                        <table id="historial" class="display table table-hover text-nowrap" style="width:100%">
                             <thead>
                                 <tr>
+                                    <th>#</th>
                                     <th>Usuario</th>
                                     <th>Fecha</th>
                                     <th>Categoria</th>
                                     <th>Código</th>
-                                    <th>Descripción</th>
                                     <th>Observación</th>
                                 </tr>
                             </thead>
@@ -71,4 +71,4 @@ d
 </body>
 </html>
 
-<!-- <script src="../asset/js/consulta.js"></script> -->
+<script src="../asset/js/historial.js"></script>

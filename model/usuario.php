@@ -31,7 +31,7 @@ class usuario {
     }
 
     function obtener_dato_logueo($correo){
-        $sql="SELECT * FROM usuario join tipo_usuario on id_tip_user=id_tipo and correo=:correo";
+        $sql="SELECT id, nombre, CONCAT(nombre,' ',apellido) as consultor, id_tip_user FROM usuario join tipo_usuario on id_tip_user=id_tipo and correo=:correo";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':correo'=>$correo));
         $this->objetos= $query->fetchall();

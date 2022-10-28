@@ -32,6 +32,6 @@ if($_POST['funcion']=='rellenar_codigos'){
     }
     $jsonstring=json_encode($json);
     echo $jsonstring;
-  }
+}
 
 ?>

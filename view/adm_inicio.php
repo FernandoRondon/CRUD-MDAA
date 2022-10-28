@@ -38,7 +38,7 @@
                         <!-- small box -->
                         <div class="small-box bg-success">
                           <div class="inner">
-                              <h3 id="venta_diaria">0</h3>
+                              <h3 id="cantidad_categoria">0</h3>
                               <p>Categoria</p>
                           </div>
                           <div class="icon">
@@ -52,7 +52,7 @@
                         <!-- small box -->
                         <div class="small-box bg-warning">
                           <div class="inner">
-                              <h3 id="venta_mensual">0</h3>
+                              <h3 id="cantidad_codigo">0</h3>
                               <p>Código</p>
                           </div>
                           <div class="icon">
@@ -66,7 +66,7 @@
                         <!-- small box -->
                         <div class="small-box bg-danger">
                           <div class="inner">
-                            <h3 id="venta_anual">0</h3>
+                            <h3 id="cantidad_consulta">0</h3>
                             <p>Consultas</p>
                           </div>
                           <div class="icon">
@@ -94,3 +94,5 @@
     ?>
 </body>
 </html>
+
+<script src="../asset/js/inicio.js"></script>

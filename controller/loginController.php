@@ -26,6 +26,7 @@ else
             $_SESSION["id"] = $objeto->id;
             $_SESSION["id_tip_user"] = $objeto->id_tip_user;
             $_SESSION["nombre"]= $objeto->nombre;
+            $_SESSION['consultor']=$objeto->consultor;
         }
         switch ($_SESSION["id_tip_user"]) {
             case 1:
