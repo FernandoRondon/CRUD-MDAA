@@ -54,7 +54,7 @@
   
 
 <!-- Button trigger modal -->
-<!-- <div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -65,12 +65,12 @@
       </div>
       <div class="modal-body">
         <div class="text-center">
-            <img id="avatar3"src="../img/avatar.png" class="profile-user-img img-fluid img-circle">
+            <img src="../asset/img/user_default.jpg" class="profile-user-img img-fluid img-circle">
         </div>
         <div class="text-center">
             <b>
                 <?php
-                    // echo $_SESSION['nombre'];
+                    echo $_SESSION['consultor'];
                 ?>
             </b>
         </div>
@@ -98,7 +98,7 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 
 <!-- MODAL PARA CREAR USUARIO -->
 <div class="modal fade" id="crearusuario" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -229,5 +229,5 @@
 
 </body>
 </html>
-<!-- <script src="../asset/js/categoria.js"></script> -->
+
 <script src="../asset/js/usuario.js"></script>

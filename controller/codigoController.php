@@ -2,9 +2,10 @@
 include_once '../model/codigo.php';
 $codigo=new codigo();
 if($_POST['funcion']=='crear'){
-    $codigo = $_POST['codigo'];
+    $categoria = $_POST['categoria_num'];
+    $num_codigo = $_POST['num_codigo'];
     $nombre = $_POST['nombre_codigo'];
-    $codigo->crear($codigo, $nombre);
+    $codigo->crear($categoria, $num_codigo, $nombre);
 }
 
 if($_POST['funcion']=='buscar'){
@@ -21,13 +22,13 @@ if($_POST['funcion']=='buscar'){
     echo $jsonstring;
 }
 
-if($_POST['funcion']=='rellenar_codigos'){
-    $codigo->rellenar_codigos();
+if($_POST['funcion']=='rellenar_categorias'){
+    $codigo->rellenar_categorias();
     $json = array();
     foreach ($codigo->objetos as $objeto) {
        $json[]=array(
-           'id'=>$objeto->id_des,
-           'nombre'=>$objeto->des_nombre
+           'id'=>$objeto->id_categoria,
+           'nombre'=>$objeto->categoria_nombre
        );
     }
     $jsonstring=json_encode($json);

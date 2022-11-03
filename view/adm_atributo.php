@@ -31,8 +31,8 @@
                             <select name="clave" id="clave" class="form-control select2" style="width: 100%;"></select>
                         </div>
                         <div class="form-group">
-                            <label for="nombre_categoria">Nombre</label>
-                            <input id="nombre_categoria"type="text" class="form-control" placeholder="Ingrese nombre" required>
+                            <label for="nombre_categoria">Categoria</label>
+                            <input id="nombre_categoria"type="text" class="form-control" placeholder="Ingrese nombre de la categoria" required>
                         </div>
                           <!-- <input type="hidden" id="id_editar_cat"> -->
                 </div>
@@ -103,14 +103,23 @@
                 </div>
                 <div class="card-body">
                     <form id="form-crear-codigo">
-                        <div class="form-group">
-                            <label for="codigo_num">Código</label>
-                            <select name="codigo_num" id="codigo_num" class="form-control select2" style="width: 100%"></select>                        </div>
-                        <div class="form-group">
-                            <label for="nombre_codigo">Descripción</label>
-                            <input id="nombre_codigo"type="text" class="form-control" placeholder="Ingrese descripción" required>
-                            <!-- <input type="hidden" id="id_editar_code"> -->
-                        </div>
+                      <!-- <div class="form-group">
+                        <label for="codigo_num">Categoria</label>
+                        <select name="codigo_num" id="codigo_num" class="form-control select2" style="width: 100%"></select>
+                      </div> -->
+                      <div class="form-group">
+                        <label for="categoria_num">Categoria</label>
+                        <select name="categoria_num" id="categoria_num" class="form-control select2" style="width: 100%"></select>
+                      </div>
+                      <div class="form-group">
+                        <label for="num_codigo">Código</label>
+                        <input name="num_codigo" id="num_codigo"type="text" class="form-control" placeholder="Ingrese el código" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="nombre_codigo">Descripción</label>
+                        <input id="nombre_codigo"type="text" class="form-control" placeholder="Ingrese descripción del código" required>
+                        <!-- <input type="hidden" id="id_editar_code"> -->
+                      </div>
                 </div>
                   <div class="alert alert-success text-center" id="add-codigo" style='display:none;'>
                     <span><i class="fas fa-check m-1"></i>Se agrego correctamente</span>

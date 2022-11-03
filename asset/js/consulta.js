@@ -134,10 +134,10 @@ $('#form-crear-consulta').submit(e => {
     
 });
 
-    function refrescar(){
-    //Actualiza la página
-    location.reload();
-  }
+//Actualiza la página
+function refrescar(){
+location.reload();
+}
 
 // $('#limpiar').click(function() {
 //     $('#categoria').val('0');

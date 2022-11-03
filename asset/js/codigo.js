@@ -2,29 +2,30 @@ $(document).ready(function(){
   var funcion;
   $('.select2').select2();
   buscar_codigo();
-  rellenar_codigos();
+  rellenar_categorias();
 
-  function rellenar_codigos() {
-    funcion = "rellenar_codigos";
+  function rellenar_categorias() {
+    funcion = "rellenar_categorias";
     $.post('../controller/codigoController.php', { funcion }, (response) => {
-        const codigos = JSON.parse(response);
+        const categorias = JSON.parse(response);
         let template = '';
-        codigos.forEach(codigo => {
+        categorias.forEach(codigo => {
             template += `
                 <option value="${codigo.id}">${codigo.nombre}</option>
             `;
         });
-        $('#codigo_num').html(template);
-        // $('#mtxtcodigo').html(template);
+        $('#categoria_num').html(template);;
     })
  }
 
  $('#form-crear-codigo').submit(e=>{
-    let codigo = $('#codigo_num').val();
+    let categoria = $('#categoria_num').val();
+    let num_codigo = $('#num_codigo').val();
     let nombre_codigo = $('#nombre_codigo').val();
     funcion='crear';
-
-    $.post('../controller/codigoController.php',{codigo,nombre_codigo,funcion},(response)=>{
+    // console.log(categoria,num_codigo,nombre_codigo);
+    $.post('../controller/codigoController.php',{categoria,num_codigo,nombre_codigo,funcion},(response)=>{
+        console.log(response);
         if(response=='add'){
             $('#add-codigo').hide('slow');
             $('#add-codigo').show(1000);

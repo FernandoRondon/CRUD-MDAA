@@ -69,13 +69,13 @@ $(document).ready(function(){
               <div class="card-footer">
                 <div class="text-right">`;
               // if(tipo_usuario==1){
-                // if(usuario.tipo_usuario!=1){
-                //   template+=`
-                //   <button class="borrar-usuario btn btn-danger mr-1"type="button" data-toggle="modal" data-target="#confirmar">
-                //       <i class="fas fa-window-close mr-1"></i>Eliminar
-                //   </button>
-                //   `;
-                // }
+                if(usuario.tipo_usuario!=1){
+                  template+=`
+                  <button class="borrar-usuario btn btn-danger mr-1"type="button" data-toggle="modal" data-target="#confirmar">
+                      <i class="fas fa-window-close mr-1"></i>Eliminar
+                  </button>
+                  `;
+                }
                 if(usuario.tipo_usuario==2){
                   template+=`
                   <button class="editar-usu btn btn-success" type="button" data-toggle="modal" data-target="#editarusuario">
@@ -189,36 +189,37 @@ function cerrarmodal3(){
     $('#mtxtestado').val(estado).trigger('change');
   });
 
-//   $(document).on('click','.borrar-usuario',(e)=>{
-//     const elemento= $(this)[0].activeElement.parentElement.parentElement.parentElement.parentElement;
-//     const id=$(elemento).attr('usuarioId');
-//     funcion='borrar_usuario';
-//     $('#id_user').val(id);
-//     $('#funcion').val(funcion);
-//   });
+  $(document).on('click','.borrar-usuario',(e)=>{
+    const elemento= $(this)[0].activeElement.parentElement.parentElement.parentElement.parentElement;
+    const id=$(elemento).attr('usuarioId');
+    funcion='borrar_usuario';
+    $('#id_user').val(id);
+    $('#funcion').val(funcion);
+  });
 
   
-//   $('#form-confirmar').submit(e=>{
-//     let pass=$('#oldpass').val();
-//     let id_usuario=$('#id_user').val();
-//     funcion=$('#funcion').val();
-//     $.post('../controlador/UsuarioController.php',{pass,id_usuario,funcion},(response)=>{
-//       if(response=='ascendido'|| response=='descendido'|| response=='borrado'){
-//         $('#confirmado').hide('slow');
-//         $('#confirmado').show(1000);
-//         $('#confirmado').hide(1000);
-//         $('#confirmado').hide(1000,cerrarmodal3);
-//         $('#form-confirmar').trigger('reset');
-//       }
-//       else{
-//         $('#rechazado').hide('slow');
-//         $('#rechazado').show(1000);
-//         $('#rechazado').hide(2000);
-//         $('#form-confirmar').trigger('reset');
-//       }
-//       buscar_datos();
-//     });
-//     e.preventDefault();
+  $('#form-confirmar').submit(e=>{
+    let pass=$('#oldpass').val();
+    let id_usuario=$('#id_user').val();
+    // console.log(id_usuario, pass);
+    funcion=$('#funcion').val();
+    $.post('../controller/usuarioController.php',{pass,id_usuario,funcion},(response)=>{
+      if(response=='borrado'){
+        $('#confirmado').hide('slow');
+        $('#confirmado').show(1000);
+        $('#confirmado').hide(1000);
+        $('#confirmado').hide(1000,cerrarmodal3);
+        $('#form-confirmar').trigger('reset');
+      }
+      else{
+        $('#rechazado').hide('slow');
+        $('#rechazado').show(1000);
+        $('#rechazado').hide(2000);
+        $('#form-confirmar').trigger('reset');
+      }
+      buscar_datos();
+    });
+    e.preventDefault();
 
-//   });
+  });
 });

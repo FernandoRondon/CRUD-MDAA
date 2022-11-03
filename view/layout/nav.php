@@ -97,7 +97,7 @@
               </a>
             </li>
 
-            <li id="" class="nav-header">Reportes</li>
+            <!-- <li id="" class="nav-header">Reportes</li>
             <li class="nav-item">
               <a href="adm_reporte.php" class="nav-link">
                 <i class="nav-icon fas fa-file"></i>
@@ -105,7 +105,7 @@
                   Gestión reportes
                 </p>
               </a>
-            </li>
+            </li> -->
 
           </ul>
         </nav>

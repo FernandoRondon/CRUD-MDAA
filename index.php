@@ -45,7 +45,7 @@ session_destroy();
                         <input type="password" name="pass" class="input"required>
                     </div>
                 </div>
-                <a href="#">Recuperar contraseña</a>
+                <!-- <a href="#">Recuperar contraseña</a> -->
                 <input type="submit" class="btn" value="iniciar Sesion">
             </form>
         </div>

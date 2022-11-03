@@ -23,19 +23,27 @@ if($_POST['funcion']=='listar'){
 if($_POST['funcion']=='mostrar'){
     $historial->cantidad_categoria();
     foreach ($historial->objetos as $objeto) {
-        $cantidad_categoria=$objeto->num_categoria;
+        $cantidad_categoria=$objeto->cantidad_categoria;
     }
     $historial->cantidad_codigo();
     foreach ($historial->objetos as $objeto) {
-        $cantidad_codigo=$objeto->num_codigo;
+        $cantidad_codigo=$objeto->cantidad_codigo;
     }
     $historial->cantidad_consulta();
     foreach ($historial->objetos as $objeto) {
-        $cantidad_consulta=$objeto->num_consulta;
+        $cantidad_consulta=$objeto->cantidad_consulta;
     }
 
-    // $jsonstring = json_encode($json);
-    // echo $jsonstring;
+    $json=array();
+    foreach ($historial->objetos as $objeto) {
+        $json[]= array(
+            'cantidad_categoria'=>$cantidad_categoria,
+            'cantidad_codigo'=>$cantidad_codigo,
+            'cantidad_consulta'=>$cantidad_consulta,
+        );
+    }
+    $jsonstring = json_encode($json[0]);
+    echo $jsonstring;
 }
 
 ?>

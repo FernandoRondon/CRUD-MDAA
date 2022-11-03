@@ -9,7 +9,7 @@ class usuario {
 
     // LOGIN
     function loguearse($correo,$pass){
-        $sql="SELECT * FROM usuario INNER JOIN tipo_usuario ON id_tip_user = id_tipo WHERE correo=:correo AND estado=1";
+        $sql="SELECT * FROM usuario JOIN tipo_usuario ON id_tip_user = id_tipo WHERE correo=:correo AND estado=1";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':correo' => $correo));
         $objetos = $query->fetchAll();
@@ -44,14 +44,14 @@ class usuario {
     function buscar(){
         if(!empty($_POST['consulta'])){
             $consulta=$_POST['consulta'];
-            $sql="SELECT * FROM usuario join tipo_usuario on id_tip_user=id_tipo join estado on estado = id_estado where nombre LIKE :consulta";
+            $sql="SELECT * FROM usuario join tipo_usuario on id_tip_user=id_tipo join estado on estado = id_estado where usuario_visibilidad = 1 and nombre LIKE :consulta";
             $query = $this->acceso->prepare($sql);
             $query->execute(array(':consulta'=>"%$consulta%"));
             $this->objetos=$query->fetchall();
             return $this->objetos;
         }
         else{
-            $sql="SELECT * FROM usuario join tipo_usuario on id_tip_user=id_tipo join estado on estado = id_estado where nombre NOT LIKE '' ORDER BY id LIMIT 25";
+            $sql="SELECT * FROM usuario join tipo_usuario on id_tip_user=id_tipo join estado on estado = id_estado where usuario_visibilidad = 1 and nombre NOT LIKE '' ORDER BY id LIMIT 25";
             $query = $this->acceso->prepare($sql);
             $query->execute();
             $this->objetos=$query->fetchall();
@@ -68,30 +68,32 @@ class usuario {
         return $this->objetos;
     }
 
-    function crear($nombre,$apellido,$edad,$dni,$residencia,$telefono,$correo,$pass,$tipo,$estado,$avatar){
-        $sql="SELECT id FROM usuario where correo=:correo or dni=:dni";
+    function crear($nombre,$apellido,$edad,$dni,$residencia,$telefono,$correo,$pass,$tipo,$estado,$usuario_visibilidad,$avatar){
+        $sql="SELECT id, usuario_visibilidad FROM usuario where correo=:correo or dni=:dni";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':correo'=>$correo,':dni'=>$dni));
         $this->objetos=$query->fetchall();
 
         if(!empty($this->objetos)){
-            echo 'noadd';
-            // foreach ($this->objetos as $usu) {
-            //     $usu_id_usuario = $usu->id;
-            // }
-            // if ($usu_visible == 'S') {
-            //     echo 'noadd';
-            // }else{
-            //     $sql="UPDATE usuario SET visible_usu='S', id_estado_usu=1 where id_usuario=:id ";
-            //     $query = $this->acceso->prepare($sql);
-            //     $query->execute(array(':id'=>$usu_id_usuario));
-            //     echo 'add';
-            // }
+            // echo 'noadd';
+
+            foreach ($this->objetos as $usu) {
+                $usu_id_usuario = $usu->id;
+                $usu_visible = $usu->usuario_visibilidad;
+            }
+            if ($usu_visible == 1) {
+                echo 'noadd';
+            }else{
+                $sql="UPDATE usuario SET usuario_visibilidad=1, estado=1 where id=:id ";
+                $query = $this->acceso->prepare($sql);
+                $query->execute(array(':id'=>$usu_id_usuario));
+                echo 'add';
+            }
         }
         else{
-            $sql="INSERT INTO usuario(nombre,apellido,edad,dni,residencia,telefono,correo,contrasena,id_tip_user,estado,avatar) VALUES (:nombre,:apellido,:edad,:dni,:residencia,:telefono,:correo,:pass,:id_tip_user,:estado,:avatar);";
+            $sql="INSERT INTO usuario(nombre,apellido,edad,dni,residencia,telefono,correo,contrasena,id_tip_user,estado,usuario_visibilidad,avatar) VALUES (:nombre,:apellido,:edad,:dni,:residencia,:telefono,:correo,:pass,:id_tip_user,:estado,:usuario_visibilidad,:avatar);";
             $query = $this->acceso->prepare($sql);
-            $query->execute(array(':nombre'=>$nombre,':apellido'=>$apellido,':edad'=>$edad,':dni'=>$dni,':residencia'=>$residencia,':telefono'=>$telefono,':correo'=>$correo,':pass'=>$pass,':id_tip_user'=>$tipo,':estado'=>$estado,':avatar'=>$avatar));
+            $query->execute(array(':nombre'=>$nombre,':apellido'=>$apellido,':edad'=>$edad,':dni'=>$dni,':residencia'=>$residencia,':telefono'=>$telefono,':correo'=>$correo,':pass'=>$pass,':id_tip_user'=>$tipo,':estado'=>$estado,':usuario_visibilidad'=>$usuario_visibilidad,':avatar'=>$avatar));
             echo 'add';
         }
     }
@@ -108,6 +110,41 @@ class usuario {
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':id'=>$id,':nombre'=>$nombre,':apellido'=>$apellido,':residencia'=>$residencia,':telefono'=>$telefono,':contrasena'=>$contrasena,':estado'=>$estado));
         echo 'edit';
+    }
+
+    function borrar($pass,$id_borrado,$id_usuario){
+        $sql="SELECT * FROM usuario where id=:id";
+        $query = $this->acceso->prepare($sql);
+        $query->execute(array(':id'=>$id_usuario));
+        $this->objetos=$query->fetchall();
+        foreach ($this->objetos as $objeto) {
+            $contrasena_actual = $objeto->contrasena;
+        }
+        if(strpos($contrasena_actual,'$2y$10$')===0){
+            if(password_verify($pass,$contrasena_actual)){
+                $sql="UPDATE usuario SET estado=2, usuario_visibilidad=0 where id=:id";
+                $query = $this->acceso->prepare($sql);
+                $query->execute(array(':id'=>$id_borrado));
+                echo 'borrado';
+            }
+            else{
+                echo 'noborrado';
+            }
+            
+        }
+        else{
+            if($pass==$contrasena_actual){
+                $sql="UPDATE usuario SET estado=2, usuario_visibilidad=0 where id=:id";
+                $query = $this->acceso->prepare($sql);
+                $query->execute(array(':id'=>$id_borrado));
+                echo 'borrado';
+                
+            }
+            else{
+                echo 'noborrado';
+            }
+            
+        }
     }
 }
 ?>

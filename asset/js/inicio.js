@@ -6,7 +6,7 @@ $(document).ready(function() {
     $.post('../controller/historialController.php', { funcion }, (response) => {
         console.log(response);
         const cantidad = JSON.parse(response);
-        $('#cantidad_categoria').html((cantidad.num_categoria * 1));
+        $('#cantidad_categoria').html((cantidad.cantidad_categoria));
         $('#cantidad_codigo').html((cantidad.cantidad_codigo));
         $('#cantidad_consulta').html((cantidad.cantidad_consulta));
 

@@ -7,7 +7,7 @@ class codigo{
         $this->acceso=$db->pdo;
     }
 
-    function crear($codigo, $nombre){
+    function crear($categoria, $num_codigo, $nombre){
         $sql="SELECT * FROM des_categoria where des_nombre=:nombre";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':nombre'=>$nombre));
@@ -29,9 +29,9 @@ class codigo{
              }
         }
         else{
-            $sql="INSERT INTO des_categoria(id_des,des_nombre,des_estado) values (:codigo,:nombre,:estado);";
+            $sql="INSERT INTO des_categoria(codigo,des_nombre,id_des_categoria,des_estado) values (:codigo,:des_nombre,:id_des_categoria,:des_estado);";
             $query = $this->acceso->prepare($sql);
-            $query->execute(array(':codigo'=>$codigo,':nombre'=>$nombre,'des_estado'=>1));
+            $query->execute(array(':codigo'=>$num_codigo,':des_nombre'=>$nombre,':id_des_categoria'=>$categoria,':des_estado'=>1));
             echo 'add';
         }
     }
@@ -54,9 +54,9 @@ class codigo{
       }
     }
 
-    function rellenar_codigos()
+    function rellenar_categorias()
     {
-        $sql="SELECT * FROM des_categoria WHERE des_estado=1 order by des_nombre asc";
+        $sql="SELECT * FROM categoria WHERE categoria_estado=1 order by categoria_nombre asc";
         $query = $this->acceso->prepare($sql);
         $query->execute();
         $this->objetos=$query->fetchall();

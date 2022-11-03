@@ -16,21 +16,21 @@
     }  
 
     function cantidad_categoria(){
-      $sql="SELECT COUNT(id_categoria) as num_categoria FROM categoria";
+      $sql="SELECT COUNT(id_categoria) as cantidad_categoria FROM categoria";
       $query = $this->acceso->prepare($sql);
       $query->execute();
       $this->objetos=$query->fetchall();
       return $this->objetos;
     }
     function cantidad_codigo(){
-        $sql="SELECT COUNT(id_des) as num_codigo FROM des_categoria";
+        $sql="SELECT COUNT(id_des) as cantidad_codigo FROM des_categoria";
         $query = $this->acceso->prepare($sql);
         $query->execute();
         $this->objetos=$query->fetchall();
         return $this->objetos;
     }
     function cantidad_consulta(){
-      $sql="SELECT COUNT(id_consulta) as num_consulta FROM consulta";
+      $sql="SELECT COUNT(id_consulta) as cantidad_consulta FROM consulta";
         $query = $this->acceso->prepare($sql);
         $query->execute();
         $this->objetos=$query->fetchall();

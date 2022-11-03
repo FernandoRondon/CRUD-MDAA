@@ -2,8 +2,8 @@
 include_once '../model/usuario.php';
 $usuario = new usuario();
 session_start();
-// $id_usuario= $_SESSION['id'];
-// $tipo_usuario=$_SESSION['id_tip_user'];
+$id_usuario= $_SESSION['id'];
+$tipo_usuario=$_SESSION['id_tip_user'];
 
 // if($_POST['funcion']=='buscar_usuario'){
 //     $json=array();
@@ -145,8 +145,9 @@ if($_POST['funcion']=='crear_usuario'){
     $pass = $_POST['pass'];
     $tipo=2;
     $estado=1;
+    $usuario_visibilidad = 1;
     $avatar='user_default.jpg';
-    $usuario->crear($nombre,$apellido,$edad,$dni,$residencia,$telefono,$correo,$pass,$tipo,$estado,$avatar);
+    $usuario->crear($nombre,$apellido,$edad,$dni,$residencia,$telefono,$correo,$pass,$tipo,$estado,$usuario_visibilidad,$avatar);
 }
 
 if($_POST['funcion']=='rellenar_estados'){
@@ -162,33 +163,10 @@ if($_POST['funcion']=='rellenar_estados'){
   echo $jsonstring;
 }
 
-// if($_POST['funcion']=='ascender'){
-//     $pass=$_POST['pass'];
-//     $id_ascendido=$_POST['id_usuario'];
-//     $usuario->ascender($pass,$id_ascendido,$id_usuario);
-// }
-// if($_POST['funcion']=='descender'){
-//     $pass=$_POST['pass'];
-//     $id_descendido=$_POST['id_usuario'];
-//     $usuario->descender($pass,$id_descendido,$id_usuario);
-// }
-// if($_POST['funcion']=='borrar_usuario'){
-//     $pass=$_POST['pass'];
-//     $id_borrado=$_POST['id_usuario'];
-//     $usuario->borrar($pass,$id_borrado,$id_usuario);
-// }
-// if($_POST['funcion']=='devolver_avatar'){
-//     $usuario->devolver_avatar($id_usuario);
-//     $json=array();
-//     foreach ($usuario->objetos as $objeto) {
-//         $json=$objeto;
-//     }
-//     $jsonstring = json_encode($json);
-//     echo $jsonstring;
-// }
-// if($_POST['funcion']=='tipo_usuario'){
-//     echo $tipo_usuario;
-// }
 
-
+if($_POST['funcion']=='borrar_usuario'){
+    $pass=$_POST['pass'];
+    $id_borrado=$_POST['id_usuario'];
+    $usuario->borrar($pass,$id_borrado,$id_usuario);
+}
 ?>
