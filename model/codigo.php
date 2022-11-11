@@ -8,7 +8,7 @@ class codigo{
     }
 
     function crear($categoria, $num_codigo, $nombre){
-        $sql="SELECT * FROM des_categoria where des_nombre=:nombre AND codigo=:codigo";
+        $sql="SELECT * FROM des_categoria where des_nombre=:nombre OR des_codigo=:codigo";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':nombre'=>$nombre,':codigo'=>$num_codigo));
    
@@ -29,7 +29,7 @@ class codigo{
              }
         }
         else{
-            $sql="INSERT INTO des_categoria(codigo,des_nombre,id_des_categoria,des_estado) values (:codigo,:des_nombre,:id_des_categoria,:des_estado);";
+            $sql="INSERT INTO des_categoria(des_codigo,des_nombre,id_des_categoria,des_estado) values (:codigo,:des_nombre,:id_des_categoria,:des_estado);";
             $query = $this->acceso->prepare($sql);
             $query->execute(array(':codigo'=>$num_codigo,':des_nombre'=>$nombre,':id_des_categoria'=>$categoria,':des_estado'=>1));
             echo 'add';
@@ -37,7 +37,7 @@ class codigo{
     }
 
     function editar($num_codigo, $nombre, $id_editado){
-        $sql="UPDATE des_categoria SET codigo=:codigo, des_nombre=:des_nombre where id_des=:id";
+        $sql="UPDATE des_categoria SET des_codigo=:codigo, des_nombre=:des_nombre where id_des=:id";
         $query = $this->acceso->prepare($sql);
         $query->execute(array(':id'=>$id_editado,':des_nombre'=>$nombre, ':codigo'=>$num_codigo));
         echo 'edit';
@@ -84,7 +84,7 @@ class codigo{
 
     function rellenar_categorias()
     {
-        $sql="SELECT * FROM categoria WHERE categoria_estado=1 order by categoria_nombre asc";
+        $sql="SELECT * FROM categoria WHERE categoria_estado=1 order by id_categoria asc";
         $query = $this->acceso->prepare($sql);
         $query->execute();
         $this->objetos=$query->fetchall();

@@ -40,11 +40,11 @@
                     <span><i class="fas fa-check m-1"></i>Se agrego correctamente</span>
                   </div>
                   <div class="alert alert-danger text-center" id="noadd-categoria" style='display:none;'>
-                    <span><i class="fas fa-times m-1"></i>La categoria ya existe</span>
+                    <span><i class="fas fa-times m-1"></i>La categoria o código ya existe</span>
                   </div>
                 <div class="card-footer">
                     <button type="submit" class="btn bg-gradient-primary float-right m-1">Guardar</button>
-                    <button type="button" id="mbtncerrarmodal" data-dismiss="modal" class="btn btn-outline-secondary float-right m-1">Cerrar</button>
+                    <button type="button" id="mbtncerrarmodal3" data-dismiss="modal" class="btn btn-outline-secondary float-right m-1">Cerrar</button>
                     </form>
                 </div>
             </div>
@@ -211,6 +211,7 @@
                                               <thead class="table-success">
                                                 <tr>
                                                   <th>Acción</th>
+                                                  <th>Código categoria</th>
                                                   <th>Categoria</th>
                                                 </tr>
                                               </thead>

@@ -7,10 +7,10 @@ class categoria{
         $this->acceso=$db->pdo;
     }
 
-    function crear($clave, $nombre){
-        $sql="SELECT * FROM categoria where categoria_nombre=:nombre";
+    function crear($codigo, $nombre){
+        $sql="SELECT * FROM categoria where categoria_codigo=:codigo OR categoria_nombre=:nombre";
         $query = $this->acceso->prepare($sql);
-        $query->execute(array(':nombre'=>$nombre));
+        $query->execute(array(':nombre'=>$nombre, ':codigo'=>$codigo));
    
         $this->objetos=$query->fetchall();
         if(!empty($this->objetos)){
@@ -29,9 +29,9 @@ class categoria{
              }
         }
         else{
-            $sql="INSERT INTO categoria(id_tipo_categoria,categoria_nombre,categoria_estado) values (:clave,:nombre,:estado);";
+            $sql="INSERT INTO categoria(categoria_nombre,categoria_codigo,categoria_estado) values (:nombre,:codigo,:estado);";
             $query = $this->acceso->prepare($sql);
-            $query->execute(array(':clave'=>$clave,':nombre'=>$nombre,'estado'=>1));
+            $query->execute(array(':codigo'=>$codigo,':nombre'=>$nombre,'estado'=>1));
             echo 'add';
         }
     }
@@ -56,16 +56,6 @@ class categoria{
         }
     }
    
-    function rellenar_claves()
-    {
-        $sql="SELECT * FROM tipo_categoria WHERE estado=1 order by nombre asc";
-        $query = $this->acceso->prepare($sql);
-        $query->execute();
-        $this->objetos=$query->fetchall();
-        return $this->objetos;
-    }
-
-
     function borrar($id){
         $sql="SELECT * FROM des_categoria where id_des_categoria=:id";
         $query = $this->acceso->prepare($sql);
@@ -87,10 +77,10 @@ class categoria{
         }
     }
     
-    function editar($nombre,$id_editado){
-        $sql="UPDATE categoria SET categoria_nombre=:nombre where id_categoria=:id";
+    function editar($codigo, $nombre,$id_editado){
+        $sql="UPDATE categoria SET categoria_nombre=:nombre, categoria_codigo=:codigo where id_categoria=:id";
         $query = $this->acceso->prepare($sql);
-        $query->execute(array(':id'=>$id_editado,':nombre'=>$nombre));
+        $query->execute(array(':id'=>$id_editado,':nombre'=>$nombre, ':codigo'=>$codigo));
         echo 'edit';
     }
 }

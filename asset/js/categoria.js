@@ -2,30 +2,13 @@ $(document).ready(function(){
 var funcion;
 $('.select2').select2();
 buscar_categoria();
-rellenar_claves();
-
-  function rellenar_claves() {
-    funcion = "rellenar_claves";
-    $.post('../controller/categoriaController.php', { funcion }, (response) => {
-        const claves = JSON.parse(response);
-        let template = '';
-        claves.forEach(clave => {
-            template += `
-                <option value="${clave.id}">${clave.nombre}</option>
-            `;
-        });
-        $('#clave').html(template);
-        $('#mtxtclave').html(template);
-    })
- }
-
 
   $('#form-crear-categoria').submit(e=>{
-      let clave = $('#clave').val();
+      let code_categoria = $('#codigo_categoria').val();
       let nombre_categoria = $('#nombre_categoria').val();
       funcion='crear';
 
-      $.post('../controller/categoriaController.php',{clave,nombre_categoria,funcion},(response)=>{
+      $.post('../controller/categoriaController.php',{code_categoria,nombre_categoria,funcion},(response)=>{
           if(response=='add'){
               $('#add-categoria').hide('slow');
               $('#add-categoria').show(1000);
@@ -48,10 +31,11 @@ rellenar_claves();
 }
 
   $('#form-editar-categoria').submit(e=>{
+      let code_categoria = $('#mtxtcategoria_codigo').val();
       let nombre_categoria = $('#mtxtcategoria').val();
       let id_editado = $('#id_editar_cat').val();
       funcion='editar';
-      $.post('../controller/categoriaController.php',{nombre_categoria,id_editado,funcion},(response)=>{
+      $.post('../controller/categoriaController.php',{code_categoria, nombre_categoria,id_editado,funcion},(response)=>{
           if(response=='edit'){
               $('#edit-categorias').hide('slow');
               $('#edit-categorias').show(1000);
@@ -75,7 +59,7 @@ rellenar_claves();
           let template='';
           categorias.forEach(categoria => {
               template+=`
-                  <tr catId="${categoria.id}" catNombre="${categoria.nombre}">
+                  <tr catId="${categoria.id}" catNombre="${categoria.nombre}" catCodigo="${categoria.codigo}">
                       <td>
                           <button class="editar-cat btn btn-success" title="Editar categoria" type="button" data-toggle="modal" data-target="#editarcategoria">
                               <i class="fas fa-pencil-alt"></i>
@@ -84,6 +68,7 @@ rellenar_claves();
                               <i class="fas fa-trash-alt"></i>
                           </button>
                       </td>
+                      <td>${categoria.codigo}</td>
                       <td>${categoria.nombre}</td>
                   </tr>
               `;
@@ -159,9 +144,11 @@ rellenar_claves();
   $(document).on('click','.editar-cat',(e)=>{
       const elemento = $(this)[0].activeElement.parentElement.parentElement;
       const id = $(elemento).attr('catId');
+      const codigo = $(elemento).attr('catCodigo');
       const nombre= $(elemento).attr('catNombre');
 
       $('#id_editar_cat').val(id);
+      $('#mtxtcategoria_codigo').val(codigo);
       $('#mtxtcategoria').val(nombre);
   });
 
