@@ -8,7 +8,7 @@
     }
 
     function listar(){
-      $sql="SELECT consulta_usuario, consulta_fecha, consulta_categoria, consulta_codigo, consulta_obs FROM consulta";
+      $sql="SELECT * FROM consulta JOIN categoria ON consulta_categoria = id_categoria";
       $query = $this->acceso->prepare($sql);
       $query->execute();
       $this->objetos=$query->fetchall();

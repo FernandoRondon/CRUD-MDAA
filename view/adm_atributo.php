@@ -7,7 +7,7 @@
     if($_SESSION['id_tip_user']==1){
     ?>
 
-    <title>Atributo</title>
+    <title>Categoria</title>
 </head>
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
@@ -27,13 +27,13 @@
                 <div class="card-body">
                     <form id="form-crear-categoria">
                         <div class="form-group">
-                            <label for="clave">Clave</label>
-                            <select name="clave" id="clave" class="form-control select2" style="width: 100%;"></select>
+                            <label for="codigo_categoria">Código</label>
+                            <input id="codigo_categoria"type="text" class="form-control" placeholder="Ingrese codigo de la categoria" required>
                         </div>
                         <div class="form-group">
-                            <label for="nombre_categoria">Categoria</label>
+                            <label for="nombre_categoria">Nombre</label>
                             <input id="nombre_categoria"type="text" class="form-control" placeholder="Ingrese nombre de la categoria" required>
-                        </div>
+                        </div>                        
                           <!-- <input type="hidden" id="id_editar_cat"> -->
                 </div>
                   <div class="alert alert-success text-center" id="add-categoria" style='display:none;'>
@@ -65,10 +65,10 @@
                 <div class="card-body">
                     <form id="form-editar-categoria">
                     <input type="hidden" id="id_editar_cat">
-                      <!-- <div class="form-group">
-                        <label for="clave">Clave</label>
-                        <select name="#mtxtclave" id="#mtxtclave" class="form-control select2" style="width: 100%"></select>
-                      </div> -->
+                      <div class="form-group">
+                        <label for="codigo_categoria">Código</label>
+                        <input type="text" id="mtxtcategoria_codigo" class="form-control" placeholder="Ingrese código" required>
+                      </div>
                       <div class="form-group">
                         <label for="nombre_categoria">Nombre</label>
                         <input type="text" id="mtxtcategoria" class="form-control" placeholder="Ingrese nombre" required>
@@ -103,10 +103,6 @@
                 </div>
                 <div class="card-body">
                     <form id="form-crear-codigo">
-                      <!-- <div class="form-group">
-                        <label for="codigo_num">Categoria</label>
-                        <select name="codigo_num" id="codigo_num" class="form-control select2" style="width: 100%"></select>
-                      </div> -->
                       <div class="form-group">
                         <label for="categoria_num">Categoria</label>
                         <select name="categoria_num" id="categoria_num" class="form-control select2" style="width: 100%"></select>
@@ -149,14 +145,14 @@
                 </div>
                 <div class="card-body">
                     <form id="form-editar-codigo">
-                    <input type="hidden" id="id_editar_cat">
-                      <!-- <div class="form-group">
-                        <label for="clave">Clave</label>
-                        <select name="#mtxtclave" id="#mtxtclave" class="form-control select2" style="width: 100%"></select>
-                      </div> -->
+                    <input type="hidden" id="id_editar_code">
                       <div class="form-group">
-                        <label for="nombre_codigo">Nombre</label>
-                        <input type="text" id="mtxtcodigo" class="form-control" placeholder="Ingrese nombre" required>
+                        <label for="mtxtcodigo">Código</label>
+                        <input type="text" id="mtxtcodigo" class="form-control" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="mtxtdes">Descripción</label>
+                        <input type="text" id="mtxtdes" class="form-control" required>
                       </div>
                 </div>
                     <div class="alert alert-success text-center" id="edit-codigos" style='display:none;'>
@@ -180,7 +176,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Gestión Atributo</h1>
+              <h1>Gestión Categoria</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->

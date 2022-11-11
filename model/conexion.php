@@ -1,7 +1,7 @@
 <?php
 class conexion{
     private $servidor = "localhost";
-    private $db = "codemdaa";
+    private $db = "munialto_codemdaa";
     private $puerto = 3306;
     private $charset="utf8";
     private $usuario="root";

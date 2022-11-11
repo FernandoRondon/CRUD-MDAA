@@ -11,7 +11,8 @@ if($_POST['funcion']=='listar'){
            'numeracion'=>$cont,
            'usuario'=>$objeto->consulta_usuario,
            'fecha'=>$objeto->consulta_fecha,
-           'categoria'=>$objeto->consulta_categoria,
+        //    'categoria'=>$objeto->consulta_categoria,
+           'categoria'=>$objeto->categoria_nombre,
            'codigo'=> $objeto->consulta_codigo,
            'observacion'=>$objeto->consulta_obs
        );

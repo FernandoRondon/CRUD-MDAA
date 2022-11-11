@@ -43,6 +43,10 @@ rellenar_claves();
       e.preventDefault();
   });
 
+  function cerrarmodal3(){
+    $('#mbtncerrarmodal3').click();
+}
+
   $('#form-editar-categoria').submit(e=>{
       let nombre_categoria = $('#mtxtcategoria').val();
       let id_editado = $('#id_editar_cat').val();
@@ -59,9 +63,7 @@ rellenar_claves();
       e.preventDefault();
   });
 
-  function cerrarmodal3(){
-      $('#mbtncerrarmodal3').click();
-  }
+
   function cerrarmodal4(){
       $('#mbtncerrarmodal4').click();
   }

@@ -1,8 +1,9 @@
 <?php 
 include_once '../model/codigo.php';
 $codigo=new codigo();
+
 if($_POST['funcion']=='crear'){
-    $categoria = $_POST['categoria_num'];
+    $categoria = $_POST['categoria'];
     $num_codigo = $_POST['num_codigo'];
     $nombre = $_POST['nombre_codigo'];
     $codigo->crear($categoria, $num_codigo, $nombre);
@@ -20,6 +21,18 @@ if($_POST['funcion']=='buscar'){
     }
     $jsonstring = json_encode($json);
     echo $jsonstring;
+}
+
+if($_POST['funcion']=='editar'){
+    $num_codigo = $_POST['num_codigo'];
+    $nombre = $_POST['des_codigo'];
+    $id_editado=$_POST['id_editado'];
+    $codigo->editar($num_codigo, $nombre,$id_editado);
+}
+
+if($_POST['funcion']=='borrar'){
+    $id=$_POST['id'];
+    $codigo->borrar($id);
 }
 
 if($_POST['funcion']=='rellenar_categorias'){

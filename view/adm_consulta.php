@@ -38,7 +38,15 @@
                                       <div class="input-group-append">
                                         <button onclick="mostrar()" class="btn btn-secondary" type="button">Buscar</button>
                                       </div>
+                                    
                                     </div>
+
+                                    <!-- <div class="input-group">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-append">
+                                      <button type="button" class="btn btn-info btn-flat">Go!</button>
+                                      </span>
+                                    </div> -->
 
                                   </div>
                                 </div>
@@ -120,6 +128,9 @@
     ?>
 </body>
 </html>
+
+
+
 
 <!-- <script languague="javascript">
         function mostrar() 

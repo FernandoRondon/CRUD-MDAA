@@ -28,7 +28,7 @@ class consulta{
 
     function rellenar_codigos()
     {
-        $sql="SELECT id_des_categoria, CONCAT(codigo,' | ',des_nombre) as nombre FROM des_categoria WHERE des_estado=1 order by id_des asc";
+        $sql="SELECT id_des_categoria, CONCAT(codigo,' | ',des_nombre) as nombre, codigo FROM des_categoria WHERE des_estado=1 order by id_des asc";
         $query = $this->acceso->prepare($sql);
         $query->execute();
         $this->objetos=$query->fetchall();

@@ -8,9 +8,9 @@ class codigo{
     }
 
     function crear($categoria, $num_codigo, $nombre){
-        $sql="SELECT * FROM des_categoria where des_nombre=:nombre";
+        $sql="SELECT * FROM des_categoria where des_nombre=:nombre AND codigo=:codigo";
         $query = $this->acceso->prepare($sql);
-        $query->execute(array(':nombre'=>$nombre));
+        $query->execute(array(':nombre'=>$nombre,':codigo'=>$num_codigo));
    
         $this->objetos=$query->fetchall();
         if(!empty($this->objetos)){
@@ -34,6 +34,34 @@ class codigo{
             $query->execute(array(':codigo'=>$num_codigo,':des_nombre'=>$nombre,':id_des_categoria'=>$categoria,':des_estado'=>1));
             echo 'add';
         }
+    }
+
+    function editar($num_codigo, $nombre, $id_editado){
+        $sql="UPDATE des_categoria SET codigo=:codigo, des_nombre=:des_nombre where id_des=:id";
+        $query = $this->acceso->prepare($sql);
+        $query->execute(array(':id'=>$id_editado,':des_nombre'=>$nombre, ':codigo'=>$num_codigo));
+        echo 'edit';
+    }
+
+    function borrar($id){
+        // $sql="SELECT * FROM des_categoria where id_des_categoria=:id";
+        // $query = $this->acceso->prepare($sql);
+        // $query->execute(array(':id'=>$id));
+        // $cat=$query->fetchall();
+        // if(!empty($cat)){
+        //     echo 'noborrado';
+        // }
+        // else{
+            $sql="UPDATE des_categoria SET des_estado=0 where id_des=:id";
+            $query = $this->acceso->prepare($sql);
+            $query->execute(array(':id'=>$id));
+            if(!empty($query->execute(array(':id'=>$id)))){
+                echo 'borrado';
+            }
+            else{
+                echo 'noborrado';
+            }
+        // }
     }
 
     function buscar(){

@@ -56,16 +56,17 @@ $(document).ready(function(){
 
 $("#codigo").change(function() {
     let codigo=$('#codigo').val();
-    // console.log(codigo);
+
     funcion = "rellenar_categorias";
     $.post('../controller/consultaController.php', { funcion,codigo}, (response) => {
-        console.log(response);
+        // console.log(response);
         const categorias = JSON.parse(response);
         let template = '';
         categorias.forEach(categoria => {
             template += `
             <option value="${categoria.id}">${categoria.nombre}</option>
             `;
+            console.log(categoria);
         });
         
         $('#categoria').html(template);
