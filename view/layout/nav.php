@@ -52,7 +52,7 @@
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             
-            <li class="nav-item">
+            <li id="Inicio" class="nav-item">
               <a href="adm_inicio.php" class="nav-link">
                 <i class="nav-icon fas fa-home"></i>
                 <p>
@@ -61,7 +61,7 @@
               </a>
             </li>
             <li id="Usuario" class="nav-header">Usuarios</li>
-            <li class="nav-item">
+            <li id="gestion_usuario" class="nav-item">
               <a href="adm_usuario.php" class="nav-link">
                 <i class="nav-icon fas fa-user-cog"></i>
                 <p>
@@ -69,8 +69,8 @@
                 </p>
               </a>
             </li>
-            <li id="" class="nav-header">Categoria</li>
-            <li class="nav-item">
+            <li id="Atributo" class="nav-header">Categoria</li>
+            <li id="gestion_atributo" class="nav-item">
               <a href="adm_atributo.php" class="nav-link">
                 <i class="nav-icon fa fa-cubes"></i>
                 <p>
@@ -79,16 +79,16 @@
               </a>
             </li>
 
-            <li id="" class="nav-header">Consultas</li>
+            <li id="" class="nav-header">Incidencias</li>
             <li class="nav-item">
               <a href="adm_consulta.php" class="nav-link">
                 <i class="nav-icon fa fa-users"></i>
                 <p>
-                  Gestión consulta
+                  Gestión Incidencia
                 </p>
               </a>
             </li>
-            <li class="nav-item">
+            <li id="Historial"class="nav-item">
               <a href="adm_historial.php" class="nav-link">
                 <i class="nav-icon fas fa-notes-medical"></i>
                 <p>

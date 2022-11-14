@@ -43,6 +43,13 @@ buscar_categoria();
               $('#form-editar-categoria').trigger('hold');
               buscar_categoria();
           }
+          else
+          {
+            $('#noedit-categoria').hide('slow');
+            $('#noedit-categoria').show(1000);
+            $('#noedit-categoria').hide(2000);
+            $('#form-editar-categoria').trigger('hold');
+          }
       });
       e.preventDefault();
   });

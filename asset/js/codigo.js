@@ -61,6 +61,13 @@ $('#form-editar-codigo').submit(e=>{
             $('#form-editar-codigo').trigger('hold');
             buscar_codigo();
         }
+        else
+        {
+            $('#noedit-codigo').hide('slow');
+            $('#noedit-codigo').show(1000);
+            $('#noedit-codigo').hide(2000);
+            $('#form-editar-codigo').trigger('hold');
+        }
     });
     e.preventDefault();
 });

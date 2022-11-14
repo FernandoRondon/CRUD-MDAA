@@ -67,7 +67,7 @@
                         <div class="small-box bg-danger">
                           <div class="inner">
                             <h3 id="cantidad_consulta">0</h3>
-                            <p>Consultas</p>
+                            <p>Incidencias</p>
                           </div>
                           <div class="icon">
                             <i class="fas fa-signal"></i>

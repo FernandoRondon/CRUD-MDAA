@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
+    <title>Login</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css "href="asset/css/style.css">
     <link rel="stylesheet" type="text/css "href="asset/css/css/all.min.css">
+    <link rel="icon" type="image/jpg" href="asset/img/icons/favicon.ico"/>
 </head>
 <?php
 session_start();
@@ -23,7 +24,8 @@ session_destroy();
             <img src="asset/img/security.svg" alt="">
         </div>
         <div class="contenido-login">
-            <form action="controller/loginController.php" method="post">            
+            <form action="controller/loginController.php" method="post">    
+                <img src="asset/img/logo.jpg" alt="">        
                 <p>
                     <font color=#00B0FF><b>Bienvenido</b></font>
                 <p>
@@ -45,6 +47,7 @@ session_destroy();
                         <input type="password" name="pass" class="input"required>
                     </div>
                 </div>
+                <br>
                 <!-- <a href="#">Recuperar contraseña</a> -->
                 <input type="submit" class="btn" value="iniciar Sesion">
             </form>

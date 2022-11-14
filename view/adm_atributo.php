@@ -77,6 +77,9 @@
                     <div class="alert alert-success text-center" id="edit-categorias" style='display:none;'>
                         <span><i class="fas fa-check m-1"></i>Se edito correctamente</span>
                     </div>
+                    <div class="alert alert-danger text-center" id="noedit-categoria" style='display:none;'>
+                      <span><i class="fas fa-times m-1"></i>El código ya existe</span>
+                    </div>
                 <div class="card-footer">
                     <button type="submit"class="btn bg-gradient-primary float-right m-1">Guardar</button>
                     <button type="button" id="mbtncerrarmodal4" data-dismiss="modal"class="btn btn-outline-secondary float-right m-1">Cerrar</button>
@@ -138,7 +141,7 @@
         <div class="modal-content">
             <div class="card-success">
                 <div class="card-header">
-                    <h3 class="card-title">Editar codigo o descripción</h3>
+                    <h3 class="card-title">Editar código o descripción</h3>
                     <button data-dismiss="modal" aria-label="close"class="close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -158,6 +161,9 @@
                     <div class="alert alert-success text-center" id="edit-codigos" style='display:none;'>
                         <span><i class="fas fa-check m-1"></i>Se edito correctamente</span>
                     </div>
+                    <div class="alert alert-danger text-center" id="noedit-codigo" style='display:none;'>
+                      <span><i class="fas fa-times m-1"></i>El código ya existe</span>
+                    </div>
                 <div class="card-footer">
                     <button type="submit"class="btn bg-gradient-primary float-right m-1">Guardar</button>
                     <button type="button" id="mbtncerrarmodal6" data-dismiss="modal"class="btn btn-outline-secondary float-right m-1">Cerrar</button>
@@ -176,7 +182,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Gestión Categoria</h1>
+              <h1>Gestión Categoria y Código</h1>
             </div>
           </div>
         </div><!-- /.container-fluid -->

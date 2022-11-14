@@ -78,10 +78,20 @@ class categoria{
     }
     
     function editar($codigo, $nombre,$id_editado){
-        $sql="UPDATE categoria SET categoria_nombre=:nombre, categoria_codigo=:codigo where id_categoria=:id";
+        $sql="SELECT * FROM categoria where categoria_codigo=:codigo";
         $query = $this->acceso->prepare($sql);
-        $query->execute(array(':id'=>$id_editado,':nombre'=>$nombre, ':codigo'=>$codigo));
-        echo 'edit';
+        $query->execute(array(':codigo'=>$codigo));
+        $this->objetos=$query->fetchall();
+        if(!empty($this->objetos)){
+            echo 'noedit';
+        }
+        else
+        {
+            $sql="UPDATE categoria SET categoria_nombre=:nombre, categoria_codigo=:codigo where id_categoria=:id";
+            $query = $this->acceso->prepare($sql);
+            $query->execute(array(':id'=>$id_editado,':nombre'=>$nombre, ':codigo'=>$codigo));
+            echo 'edit';
+        }
     }
 }
 ?>

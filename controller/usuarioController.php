@@ -169,4 +169,9 @@ if($_POST['funcion']=='borrar_usuario'){
     $id_borrado=$_POST['id_usuario'];
     $usuario->borrar($pass,$id_borrado,$id_usuario);
 }
+
+if($_POST['funcion']=='tipo_usuario'){
+    echo $tipo_usuario;
+}
+
 ?>

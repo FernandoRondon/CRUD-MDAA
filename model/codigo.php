@@ -37,10 +37,21 @@ class codigo{
     }
 
     function editar($num_codigo, $nombre, $id_editado){
-        $sql="UPDATE des_categoria SET des_codigo=:codigo, des_nombre=:des_nombre where id_des=:id";
+        
+        $sql="SELECT * FROM des_categoria where des_codigo=:codigo";
         $query = $this->acceso->prepare($sql);
-        $query->execute(array(':id'=>$id_editado,':des_nombre'=>$nombre, ':codigo'=>$num_codigo));
-        echo 'edit';
+        $query->execute(array(':codigo'=>$num_codigo));
+        $this->objetos=$query->fetchall();
+        if(!empty($this->objetos)){
+            echo 'noedit';
+        }
+        else
+        {
+            $sql="UPDATE des_categoria SET des_codigo=:codigo, des_nombre=:des_nombre where id_des=:id";
+            $query = $this->acceso->prepare($sql);
+            $query->execute(array(':id'=>$id_editado,':des_nombre'=>$nombre, ':codigo'=>$num_codigo));
+            echo 'edit';
+        }
     }
 
     function borrar($id){

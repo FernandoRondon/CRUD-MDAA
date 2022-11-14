@@ -28,7 +28,7 @@ class consulta{
 
     function rellenar_codigos()
     {
-        $sql="SELECT id_des_categoria, CONCAT(codigo,' | ',des_nombre) as nombre, codigo FROM des_categoria WHERE des_estado=1 order by id_des asc";
+        $sql="SELECT id_des, id_des_categoria, CONCAT(des_codigo,' | ',des_nombre) as nombre, des_codigo FROM des_categoria WHERE des_estado=1 order by id_des asc";
         $query = $this->acceso->prepare($sql);
         $query->execute();
         $this->objetos=$query->fetchall();
@@ -48,7 +48,7 @@ class consulta{
     
     function rellenar_categorias($codigo)
     {
-        $sql="SELECT id_categoria, categoria_nombre FROM des_categoria RIGHT JOIN categoria ON id_des_categoria = id_categoria  WHERE id_des_categoria= :codigo_nomb and categoria_estado=1 LIMIT 1";
+        $sql="SELECT id_categoria, categoria_nombre FROM categoria JOIN des_categoria ON id_categoria = id_des_categoria WHERE id_des_categoria= :codigo_nomb and categoria_estado=1 LIMIT 1";
         $query = $this->acceso->prepare($sql);
         // $query->execute();
         $query->execute(array(':codigo_nomb'=>$codigo));

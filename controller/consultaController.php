@@ -44,8 +44,9 @@ if($_POST['funcion']=='rellenar_codigos'){
     $json = array();
     foreach ($consulta->objetos as $objeto) {
        $json[]=array(
-           'id'=>$objeto->id_des_categoria,
-           'code'=>$objeto->codigo,
+        //    'id'=>$objeto->id_des_categoria,
+           'id'=>$objeto->id_des,
+           'code'=>$objeto->des_codigo,
            'nombre'=>$objeto->nombre
        );
     }

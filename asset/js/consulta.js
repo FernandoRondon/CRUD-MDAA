@@ -30,6 +30,7 @@ $(document).ready(function(){
             template += `
                 <option value="${codigo.id}">${codigo.nombre}</option>
             `;
+            // console.log(codigo);
         });
         $('#codigo').html(template);
         $('#codigo').prepend('<option selected="">Seleccionar código</option>');
@@ -54,24 +55,25 @@ $(document).ready(function(){
 //     })
 // });
 
-$("#codigo").change(function() {
-    let codigo=$('#codigo').val();
 
-    funcion = "rellenar_categorias";
-    $.post('../controller/consultaController.php', { funcion,codigo}, (response) => {
-        // console.log(response);
-        const categorias = JSON.parse(response);
-        let template = '';
-        categorias.forEach(categoria => {
-            template += `
-            <option value="${categoria.id}">${categoria.nombre}</option>
-            `;
-            console.log(categoria);
-        });
+// $("#codigo").change(function() {
+//     let codigo= $('#codigo').val();
+//     console.log(codigo);
+//     funcion = "rellenar_categorias";
+//     $.post('../controller/consultaController.php', { funcion,codigo}, (response) => {
+//         // console.log(response);
+//         const categorias = JSON.parse(response);
+//         let template = '';
+//         categorias.forEach(categoria => {
+//             template += `
+//             <option value="${categoria.id}">${categoria.nombre}</option>
+//             `;
+//             // console.log(categoria);
+//         });
         
-        $('#categoria').html(template);
-    })
-});
+//         $('#categoria').html(template);
+//     })
+// });
 
 
 $('#form-crear-consulta').submit(e => {
